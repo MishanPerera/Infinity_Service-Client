@@ -1,0 +1,61 @@
+div.view{
+    position: relative;
+    
+    bottom: 710px;
+    left: 260px;
+
+    width: 1250px;
+}
+
+div.additemsform{
+    width: 1250px;
+    position: relative;
+    
+    bottom: 1450px;
+    left: 260px;
+}
+
+h1{
+    position: relative;
+    top: 10px;
+    
+}
+
+div.addpriceform{
+    width: 1250px;
+    position: relative;
+    
+    bottom: 1450px;
+    left: 260px;
+
+   
+}
+
+.itemsearch{
+    position: relative;
+    top: 54px;
+    left: 850px;
+    width: 260px;
+    
+}
+
+.itemsearchlable{
+    position: relative;
+    top: 100px;
+    left: 750px;
+
+}
+.itemsearch1{
+    position: relative;
+    top: 54px;
+    left: 830px;
+    width: 260px;
+    
+}
+.itemsearchlable2{
+    position: relative;
+    top: 100px;
+    left: 730px;
+
+}
+
