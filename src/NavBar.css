@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    line-height: 52.8px;
+    background-color: #20436c;
+    text-decoration-color: white;
+    outline: 1px solid rgb(255, 255, 255);
+    
+}
+  
+li a {
+    display: block;
+    color: #c6cde5;
+    padding: 10px 20px;
+    text-decoration-color: #000000;
+    outline: 1px solid rgb(255, 255, 255);
+    
+}
+  
+ 
+li a:hover {
+    outline: 2px solid rgb(255, 255, 255);
+    background-color: #bdc8ee;
+    color: white;
+   
+}

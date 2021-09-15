@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route} from "react-router-dom"
+import AddServiceFacilities from "./components/serviceComponents/AddServiceFacilities"
+import ServiceFacilities from "./components/serviceComponents/ServiceFacilities"
+import UpdateFacility from './components/serviceComponents/UpdateFacility';
+import AddNormalService from './components/serviceComponents/AddNormalService';
+import SearchService from './components/serviceComponents/SearchService';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Route path="/addfacilities" exact component={AddServiceFacilities}/>
+        <Route path="/facilities" exact component={ServiceFacilities}/>
+        <Route path="/update/:fid" exact component={UpdateFacility}/>
+        <Route path="/addnservice" exact component={AddNormalService}/>
+        <Route path="/searchservice" exact component={SearchService}/>
+      </div>
+    </Router>  
   );
 }
 

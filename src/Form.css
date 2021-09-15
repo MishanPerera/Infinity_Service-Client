@@ -1,0 +1,29 @@
+div .addFacilities{
+    width: 1250px;
+    position: relative;
+    
+    bottom: 710px;
+    left: 260px;
+}
+div .view{
+    width: 1250px;
+    position: relative;
+    
+    bottom: 710px;
+    left: 260px;
+}
+
+.normalsearchlable{
+    position: relative;
+    top: 100px;
+    left: 750px;
+
+}
+
+.normalsearch{
+    position: relative;
+    top: 54px;
+    left: 850px;
+    width: 260px;
+    
+}
