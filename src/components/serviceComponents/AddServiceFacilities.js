@@ -66,8 +66,8 @@ export default function AddServiceFacilities(){
                         setFacilityCost(e.target.value);
                     }}/>
                 </div>
-
-                <button type="submit" className="btn btn-primary">SUBMIT</button>
+<center>
+                <button type="submit" className="btn btn-primary">SUBMIT</button></center>
 
             </form>
         </div>

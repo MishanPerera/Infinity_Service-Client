@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import axios from 'axios';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
-import Header from "./Header";
+import NavBar from "./Navbar";
+import { Navbar } from "reactstrap";
 
 export default function ToDoList (){ 
     
@@ -15,7 +16,7 @@ export default function ToDoList (){
        
           const getService=async() =>{ 
     
-            await axios.get(`http://localhost:8053/progress/service/${entryDate}`).then((res)=>{
+            await axios.get(`http://localhost:8070/progress/service/${entryDate}`).then((res)=>{
             //alert("Data Fetched Successfully!!!");
                setVNo(res.data.progress.vNo);
                //setEmpNo(res.data.progress.empNo);
@@ -30,7 +31,7 @@ export default function ToDoList (){
 
     return(
         <>
-        <div><Header/>
+        <div><Navbar/>
          <center>
         <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-500px"}}>
                 <h3> Progress Status</h3>

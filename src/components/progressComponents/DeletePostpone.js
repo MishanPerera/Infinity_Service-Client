@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Header from "./Header";
+import Navbar from "./Navbar";
 
 export default function DeletePostpone() {
 
@@ -13,14 +13,14 @@ export default function DeletePostpone() {
   
 
     const deletePostpone=(vNo) =>{
-        axios.delete(`http://localhost:8053/postpone/delete/${vNo}`).then(()=>{
+        axios.delete(`http://localhost:8070/postpone/delete/${vNo}`).then(()=>{
           alert("Success");
         window.location.reload(false);
         })
       }
       const getPostpone=async() =>{ 
 
-        await axios.get(`http://localhost:8053/postpone/get/${vNo}`).then((res)=>{
+        await axios.get(`http://localhost:8070/postpone/get/${vNo}`).then((res)=>{
          
            
            setHdate(res.data.postpone.handoverDate);
@@ -38,7 +38,7 @@ export default function DeletePostpone() {
      useEffect(() => {
   
           //fetching all progress from the database
-          axios.get("http://localhost:8053/postpone/view").then((res) => {
+          axios.get("http://localhost:8070/postpone/view").then((res) => {
               if (res.data.length > 0) {
                   setProgress(res.data);
               }
@@ -49,7 +49,7 @@ export default function DeletePostpone() {
     return (
 
         <> 
-        <div><Header/>
+        <div><Navbar/>
         <center>
         <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"30px",paddingLeft:"300px",marginTop:"-400px"}}>
        

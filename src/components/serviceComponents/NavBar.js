@@ -10,7 +10,7 @@ export default function NavBar() {
 
             
                     <li className="nav-item" className="text-white">
-                      <Link to="/" className="nav-link active" aria-current="page"  class="text-white">HOME</Link>
+                      <Link to="/Home" className="nav-link active" aria-current="page"  class="text-white">HOME</Link>
                     </li>
             
                     <li className="nav-item">

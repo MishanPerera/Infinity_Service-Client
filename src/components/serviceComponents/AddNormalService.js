@@ -194,7 +194,7 @@ export default function AddNormalService(){
                     }}/>
                 </div>
                 <button className="btn btn-primary" onClick={calculation}>Add</button><br/><br/>
-                <button type="submit" className="btn btn-primary" >SUBMIT</button>
+               <center> <button type="submit" className="btn btn-primary" >SUBMIT</button></center>
 
             </form>
         </div>

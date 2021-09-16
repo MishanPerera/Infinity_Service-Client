@@ -23,7 +23,7 @@ export default function UpdateProgress(){
     }, [] );
 
     const updateAPIData = (d) => {
-        axios.put(`http://localhost:8053/progress/edit/${vNo}`, {
+        axios.put(`http://localhost:8070/progress/edit/${vNo}`, {
        
          empNo,
          handoverDate,

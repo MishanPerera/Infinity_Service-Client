@@ -3,7 +3,8 @@ import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import {Link} from 'react-router-dom';
-import Header from "./Header";
+import NavBar from "./Navbar";
+import { Navbar } from "reactstrap";
 
 export default function ViewProgress() {
 
@@ -16,7 +17,7 @@ export default function ViewProgress() {
    
       const getProgress=async() =>{ 
 
-        await axios.get(`http://localhost:8053/progress/search/${vNo}`).then((res)=>{
+        await axios.get(`http://localhost:8070/progress/search/${vNo}`).then((res)=>{
            setEdate(res.data.progress.entryDate);
            setEmpNo(res.data.progress.empNo);
           setHdate(res.data.progress.handoverDate)
@@ -45,7 +46,7 @@ const setData = () => {
     return (
     
         <> 
-        <div><Header/>
+        <div><Navbar/>
         <center>
         <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-600px"}}>
                 <h3> Progress Status</h3>

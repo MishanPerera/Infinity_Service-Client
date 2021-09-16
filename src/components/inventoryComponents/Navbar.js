@@ -10,7 +10,7 @@ function Navbar() {
 
             
                     <li className="nav-item" className="text-white">
-                      <a className="nav-link active" aria-current="page" href="#" class="text-white">Home</a>
+                    <Link to="/Home" className="nav-link active" aria-current="page"  class="text-white">HOME</Link>
                     </li>
             
                     <li className="nav-item">

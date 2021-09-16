@@ -57,11 +57,7 @@ export default function  SearchService() {
 <div style={{  background: "#BBDEFB" }}>
 
         <div className="row g-3 align-items-center">
-        <div className="noramlsearchlable">
-          <div className="col-auto">
-            <label for="inputentryDate"><strong>ENTRY DATE</strong></label>
-            </div>
-            </div>
+      
           <div className="normalsearch">
           <div class="col-auto">
             <input type="text" id="inputentryDate" class="form-control" 
