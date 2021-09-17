@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import '../../Form.css';
 import axios from "axios";
 import NavBar from "./NavBar";
+import { colors } from "@material-ui/core";
 
 export default function ServiceFacilities() {
 
@@ -52,15 +53,15 @@ export default function ServiceFacilities() {
             <h2 className="text-white">SERVICE MANAGEMENT</h2>
             </center><br/>
 
-            <div className="card" >
-                <table class="table table-bordered" style={{  background: "#BBDEFB" }}>
+            <div>
+                <table class="table table-hover" style={{  background: "#BBDEFB"}}>
                     <thead>
-                        <tr>
-                            <th>Service Type</th>
-                            <th>Service Facility Name</th>
-                            <th>Service Facility Cost (Rs)</th>
-                            <th>UPDATE</th>
-                            <th>DELETE</th>
+                        <tr style={{  background: "#ebebeb"}}>
+                            <th class="text-center" scope="col">Service Type</th>
+                            <th class="text-center" scope="col">Service Facility Name</th>
+                            <th class="text-center" scope="col">Service Facility Cost (Rs)</th>
+                            <th class="text-center" scope="col">UPDATE</th>
+                            <th class="text-center" scope="col">DELETE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,15 +69,17 @@ export default function ServiceFacilities() {
                             facilities.map(function(facilities){
                                 return (
                                     <tr>
-                                        <td >{facilities.serviceType}</td>
-                                        <td >{facilities.facilityName} </td>
-                                        <td >{facilities.facilityCost} </td>
+                                        <td class="text-center">{facilities.serviceType}</td>
+                                        <td class="text-center">{facilities.facilityName} </td>
+                                        <td class="text-center">{facilities.facilityCost} </td>
 
-                                        <td >
-                                            <Link to={"/update/"+facilities._id}><button onClick={() =>setData(facilities)} >UPDATE</button></Link>            
+                                        <td class="text-center">
+                                            <Link to={"/update/"+facilities._id}>
+                                                <button className="btn btn-primary btn-sm" style={{background:"#2f3e54" ,width:"100px"}} onClick={() =>setData(facilities)} ><b>EDIT</b></button>
+                                            </Link>            
                                         </td>
-                                        <td > 
-                                            <button onClick={() =>  deleteFacilities(facilities._id)}>DELETE</button>
+                                        <td class="text-center" > 
+                                            <button className="btn btn-primary btn-sm" style={{background:"#2f3e54", width:"100px"}} onClick={() =>  deleteFacilities(facilities._id)}><b>DELETE</b></button>
                                         </td>
 
                                     </tr>

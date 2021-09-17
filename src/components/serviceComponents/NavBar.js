@@ -31,8 +31,9 @@ export default function NavBar() {
                     <li className="nav-item">
                       <a className="nav-link" href="#" class="text-white">GENERATE REPORT</a>
                     </li>
-            <br/><br/><br/>
+            <br/><br/>
             <li>
+                <br/>
                 <h6 class="text-white"> &nbsp;&nbsp; Copyright 2021 @ INFINITY <br/></h6>
                 <h6 class="text-white"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Rights Reserved</h6><br/>
             </li>
