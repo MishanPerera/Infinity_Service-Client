@@ -7,20 +7,19 @@ import Header from "./Header";
 export default function DeletePostpone() {
 
     const[vNo, setVNo] = useState('');
-   
     const[handoverDate, setHdate] = useState('');
     const[reason, setReason] = useState('');
   
 
     const deletePostpone=(vNo) =>{
-        axios.delete(`http://localhost:8053/postpone/delete/${vNo}`).then(()=>{
+        axios.delete(`http://localhost:8070/postpone/delete/${vNo}`).then(()=>{
           alert("Success");
         window.location.reload(false);
         })
       }
       const getPostpone=async() =>{ 
 
-        await axios.get(`http://localhost:8053/postpone/get/${vNo}`).then((res)=>{
+        await axios.get(`http://localhost:8070/postpone/get/${vNo}`).then((res)=>{
          
            
            setHdate(res.data.postpone.handoverDate);
@@ -38,7 +37,7 @@ export default function DeletePostpone() {
      useEffect(() => {
   
           //fetching all progress from the database
-          axios.get("http://localhost:8053/postpone/view").then((res) => {
+          axios.get("http://localhost:8070/postpone/view").then((res) => {
               if (res.data.length > 0) {
                   setProgress(res.data);
               }
@@ -58,7 +57,7 @@ export default function DeletePostpone() {
             </div>
             <nav className="navbar">
                 <div className="container-fluid">
-                    <a className="navbar-brand"> </a>
+                    
                         <form className="d-flex">
                             <input className="form-control me-2" type="text"   id="vNo"
                             minLength={12} maxLength={12} value={vNo}  placeholder="Enter vehicle No" required 
@@ -132,7 +131,7 @@ export default function DeletePostpone() {
             </div>
         </div>
         </center>
-        <div className="container  text-white" style={{marginTop:"-350px" , paddingLeft:"400px"}}>
+        <div className="container  text-white" style={{marginTop:"-300px" , paddingLeft:"400px"}}>
         <h1>WORK PROGRESS MANAGEMENT</h1>
          </div></div>
 </>

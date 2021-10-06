@@ -8,7 +8,7 @@ export default function AllProgress(){
 
     useEffect(() =>{
        function getProgresses(){
-           axios.get("http://localhost:8053/progress/")
+           axios.get("http://localhost:8070/progress/")
            .then((res) =>{
 
                //console.log(res.data);

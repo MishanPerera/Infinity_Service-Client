@@ -22,7 +22,7 @@ export default function PostponeService(){
 
         }
  
-            axios.post("http://localhost:8053/postpone/addp",newPostpone).then(()=>{
+            axios.post("http://localhost:8070/postpone/addp",newPostpone).then(()=>{
             alert("Postponed Added Succesfully !!");
             window.location="/get/:vNo";
 
@@ -54,7 +54,7 @@ export default function PostponeService(){
              
                <div className="mb-3">
                    <label htmlFor="handoverDate" className="form-label">Finishing Date</label>
-                   <input type="text" className="form-control" id="handoverDate" placeholder="dd/mm/yr"
+                   <input type="date" className="form-control" id="handoverDate" placeholder="dd/mm/yr"
                    onChange={(e)=>{
                        setHdate(e.target.value);
                   }}/>

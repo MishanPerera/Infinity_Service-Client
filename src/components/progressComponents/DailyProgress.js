@@ -1,114 +1,113 @@
-/*import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
-import Header from "./Header";
-import {Link} from "react-router-dom";
+import jspdf from "jspdf";
+import "jspdf-autotable"
+
+
 
 export default function DailyProgress() {
 
-     const[entryDate, setEdate] = useState('');
-    /*const[vNo, setVNo] = useState('');
-    const[empNo, setEmpNo] = useState('');
-    const[handoverDate, setHdate] = useState('');
-    const[status, setStatus] = useState('');*/
-   /*const [allData,setAllData] = useState([]);
+    const [allData,setAllData] = useState([]);
     const [filteredData,setFilteredData] = useState([]);
-   
-      const getDailyProgress=async() =>{ 
 
-        useEffect(() =>{
-        await axios.get(`http://localhost:8053/progress/pro/${entryDate}`)
-        .then((res)=>{
-        //alert("Data Fetched Successfully!!!");
-           /*setVNo(res.data.daily.vNo);
-           setEmpNo(res.data.daily.empNo);
-           setHdate(res.data.daily.handoverDate);
-           setStatus(res.data.daily.status);*/
-        /*  console.log(res.data);
+ 
+   useEffect(() => {
+        function getProgresses(){
+            axios("http://localhost:8070/progress/")
+            .then(response => {
+                //console.log(response.data)
+                setAllData(response.data);
+                setFilteredData(response.data);
+            }).catch(error => {
+                alert(error.message);
+            })
+        }
+        getProgresses();
+    }, [])
 
-          setAllData(res.data);
-          setFilteredData(res.data);
-
-
-      }).catch((err)=>{
-          alert(err.message);
-         // window.location.reload(false)
-      })
-      },[]);
-     };
-
-
-     return(
+    const handleSearch = (event) =>{
     
-        <div><Header/>
-        <div className="App">
-        <div style={{ margin: '0 auto', marginTop: '10%' }}>
-        <label>Search:</label>
-        <input type="text" onChange={(event) =>handleSearch(event)} />
-        </div>
-        </div>
-     )
-     </div>
-     )
-/*getDailyProgress();
-    return (
+        let value = event.target.value.toLowerCase();
+        let result = [];
+        console.log(value);
 
-    
+        result = allData.filter((data) => {
+             return data.entryDate.search(value) != -1;
+        });
+        setFilteredData(result);
+        }
+
+        //generate report pdf code
+
+        const generatePDF = tickets => {
+
+            const doc = new jspdf();
+            const tableColumn = ["vehicle no", "entry date", "handover date", "emp no","status"];
+            const tableRows = [];
+        
+            tickets.map(ticket => {
+                const ticketData = [
+                    ticket.vNo,
+                    ticket.entryDate,
+                    ticket.handoverDate,
+                    ticket.empNo,
+                    ticket.status
+                
+                ];
+                tableRows.push(ticketData);
+            })
+            doc.text("Daily Progress Report", 14, 15).setFontSize(12);
+            // right down width height
+            doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY: 35 });
+            doc.save('Daily_Progress_report_.pdf');
+        };
+
+    return(    
         <> 
-        <center>
-        <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-600px"}}>
-                <h3> Daily Progress</h3>
-         <nav className="navbar">
-                <div className="container-fluid">
-                    <a className="navbar-brand"> </a>
-                        <form className="d-flex">
-                            <input className="form-control me-2" 
-                            type="text" 
-                            id="entryDate"
-                            minLength={10} maxLength={18} value={entryDate}  placeholder="Enter date" required 
-                            onChange={(e)=>{
-                            setEdate(e.target.value);
-                             }}/>
-                            <button className="btn-light btn-outline-success" type="submit" onClick={getDailyProgress}>Search</button>&nbsp;
-                        </form>
-                </div>
-        </nav>
-        <div className="card container d-flex justify-content-center">
-                    <table className="table table-hover">
-            
-                                <thead>
-                                    <tr>
-                                        <th>vehicle no</th>
-                                        <th>entry date</th>
-                                        <th>handover date</th>
-                                        <th>emp no</th>
-                                        <th>status</th>
-                                       
+            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-700px"}}>
+                <center>
+                    <h3> Daily Progress</h3>
+                </center>&nbsp;&nbsp;&nbsp;         
+                    <div>
+                        <label>Search:</label>
+                                <input type="date" onChange={(event) =>handleSearch(event)} />
+                    </div><br />
+                    <div className="card container d-flex justify-content-center">
+                        
+                        <table className="table table-hover">
+                            <thead>
+                                <tr>
+                                <th >Vehicle No</th>
+                                <th >Entry Date</th>
+                                <th >Employee Number</th>
+                                <th >Status</th>
+                                <th >Finishing Date</th>
+                                </tr>
+                            </thead>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {
-                                filteredData.map((value)=>{
-                                     return( <tr>
-                                                <td >{value.vNo}</td>
-                                                <td >{value.entryDate} </td>
-                                                <td >{value.handoverDate} </td>
-                                                <td >{value.empNo} </td>
-                                                <td >{value.status} </td>
-                                            </tr>
-                                     )
-                                })
-                            }
-                            
-                                </tbody>
-                                </table>
-                        </div></div>
-            </center>
-
-            <div className="container  text-white" style={{marginTop:"-400px" , paddingLeft:"400px"}}>
-    <h1>WORK PROGRESS MANAGEMENT</h1>
-     </div>
-    </>
-  )
-    
-}*/
+                            <tbody>
+                                {filteredData.map((value)=>{
+                                    return(
+                                        <tr> 
+                                            <td>{value.vNo}</td> 
+                                            <td>{value.entryDate}</td>
+                                            <td>{value.empNo}</td>
+                                            <td>{value.status}</td>
+                                            <td>{value.handoverDate}</td>
+                                        </tr>
+                                    )
+                                    })
+                                    }
+                            </tbody>
+                        </table>
+                    </div><br />
+                <center>
+                    <button type="print" className="btn btn-primary" onClick={() => generatePDF(filteredData)}>Generate Report</button>
+                </center>
+            </div>
+            <div className="container  text-white" style={{marginTop:"-780px" , paddingLeft:"400px"}}>
+                <h1>WORK PROGRESS MANAGEMENT</h1>
+            </div>
+        </>
+    )
+}

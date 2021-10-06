@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 export default function Navbar() {
     return(
      <>
-     <div style={{marginTop:"20px"}}>
+     <div style={{marginTop:"5px"}}>
         <ul className="nav flex-column"  className="sticky-top"><b>
                     <li className="nav-item" className="text-white">
-                      <a className="nav-link active" aria-current="page" href="#" className="text-white">HOME</a>
+                      <a className="nav-link active" aria-current="page" href="/ServiceFacilities" className="text-white">HOME</a>
                     </li>
                     <li className="nav-item">
                       <Link to = "/add" className="nav-link" className="text-white"> ASSIGN EMPLOYEES</Link>

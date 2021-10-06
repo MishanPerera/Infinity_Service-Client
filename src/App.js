@@ -43,13 +43,13 @@ function App() {
         <Route path = "/searchavailability" exact component = {Availability} />
         <Route path = "/date" exact component = {Date} />
         <Route path="/add" exact component={AddEmployee}/>
-        <Route path="/addp" exact component={PostponeService}/>
-        <Route path="/search/:vNo" exact component={ViewProgress}/>
-        <Route path="/edit/:vNo" exact component={UpdateProgress}/>
-        <Route path="/get/:vNo" exact component={DeletePostpone}/>
-        <Route path="/service/:date" exact component={ToDoList}/>
-        <Route path="/pro/:entryDate" exact component={DailyProgress}/>
-        <Route path="/" exact component ={AllProgress}/>
+      <Route path="/addp" exact component={PostponeService}/>
+      <Route path="/search/:vNo" exact component={ViewProgress}/>
+      <Route path="/edit/:vNo" exact component={UpdateProgress}/>
+      <Route path="/get/:vNo" exact component={DeletePostpone}/>
+      <Route path="/ServiceFacilities" exact component={ToDoList}/>
+      <Route path="/pro/:entryDate" exact component={DailyProgress}/>
+      <Route path="/" exact component ={AllProgress} />
       </div>
     </Router>  
   );
