@@ -62,8 +62,8 @@ export default function UpdateFacility(){
                     setFacilityCost(e.target.value);
                 }}/>
             </div>
-       
-            <Link to={"/facilities"}><button type="submit" class="btn btn-primary" onClick={()=>{updateAPIData();}}>UPDATE</button></Link>
+       <center>
+            <Link to={"/facilities"}><button type="submit" class="btn btn-primary" onClick={()=>{updateAPIData();}}>UPDATE</button></Link></center>
         </form>
         </div>
 

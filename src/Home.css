@@ -1,0 +1,153 @@
+.pg {
+    background-image: url("https://i.pinimg.com/originals/36/f0/94/36f0949c623b61a235fd6645fa507236.jpg");
+    height: 25%;
+    width: 100%;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box1 {
+    background-color: thistle;
+    background-image: url('../src/InfinityLogo.png');
+    width:25%;
+    height: 60pt;
+    position: relative;
+    background-repeat: no-repeat;
+    left:43%; 
+    top: 15px;
+}
+
+.box2 {
+    width:70%;
+    height: 454pt;
+    position: relative;
+    left: 30%;
+    top: 10px;
+}
+
+.button {
+    background-color: #2a2555d5;
+    border: 2px solid white;
+    color: white;
+    padding: 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 350px;
+    height: 120px;
+    margin: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 20px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .button1 {
+    background-color: #2a2555d5;
+    border: 2px solid white;
+    color: white;
+    padding: 25px;
+    padding-top: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 350px;
+    height: 120px;
+    margin: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+  }
+
+  .button1:hover span {
+    padding-right: 20px;
+  }
+  
+  .button1:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .button2 {
+    background-color: #2a2555d5;
+    border: 2px solid white;
+    color: white;
+    padding: 25px;
+    padding-top: 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 350px;
+    height: 120px;
+    margin: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button2 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button2 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+  }
+
+  .button2:hover span {
+    padding-right: 20px;
+  }
+  
+  .button2:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+ 

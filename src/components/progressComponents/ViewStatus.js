@@ -3,6 +3,7 @@ import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import {Link} from 'react-router-dom';
+import Navbar from "./Navbar";
 
 export default function ViewProgress() {
 
@@ -40,6 +41,7 @@ export default function ViewProgress() {
         
     return (
         <> 
+        <div><Navbar/>
             <center>
                 <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-600px"}}>
                     <h3> Progress Status</h3>
@@ -92,6 +94,7 @@ export default function ViewProgress() {
             <div className="container  text-white" style={{marginTop:"-550px" , paddingLeft:"400px"}}>
                 <h1>WORK PROGRESS MANAGEMENT</h1>    
             </div>
+        </div>
         </>
     )
 }

@@ -6,7 +6,7 @@
 import React ,{useEffect, useState} from "react";
 import axios from "axios";
 import '../../myStyles.css'
-import  Navbar  from './Navbar';
+
 
 //creting a method for add data to stock
 export default function AddItems(){
@@ -76,7 +76,7 @@ export default function AddItems(){
 
         <div>
 
-        <Navbar/>
+        {/* <Navbar/> */}
     
         <div className="additemsform" >
 

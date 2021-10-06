@@ -32,7 +32,7 @@ export default function UpdateProgress(){
 
         })
         //window.location.reload(false);
-        window.location="/";
+        window.location="/all";
     }
     
       

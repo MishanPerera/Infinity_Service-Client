@@ -2,47 +2,46 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
-import Popup from "../components/Popup";
-import AssignEmployee from "../components/AssignEmployee"
+import Popup from "./Popup";
+import AssignEmployee from "./AssignEmployee"
+import Navbar from "./Navbar";
 
 export default function ToDoList() {
 
 
- const [allData,setAllData] = useState([]);
- const [filteredData,setFilteredData] = useState([]);
-
- const [openPopup, setOpenPopup] = useState(false);
-
-    useEffect(() => {
-        function getProgresses(){
-            axios("http://localhost:8070/nservice/service")
-            .then(response => {
-                //console.log(response.data)
-                setAllData(response.data);
-                setFilteredData(response.data);
-            }).catch(error => {
-                    alert(error.message);
-            })
-        }
-        getProgresses();
-    }, [])
-
-    const handleSearch = (event) =>{
-    
-        let value = event.target.value.toLowerCase();
-        let result = [];
-        console.log(value);
-
-        result = allData.filter((data) => {
-             return data.entryDate.search(value) != -1;
-        });
-        setFilteredData(result);
-    }
-
-
-
-    return(    
+    const [allData,setAllData] = useState([]);
+    const [filteredData,setFilteredData] = useState([]);
+   
+    const [openPopup, setOpenPopup] = useState(false);
+   
+       useEffect(() => {
+           function getProgresses(){
+               axios("http://localhost:8070/nservice/normal")
+               .then(response => {
+                   //console.log(response.data)
+                   setAllData(response.data);
+                   setFilteredData(response.data);
+               }).catch(error => {
+                       alert(error.message);
+               })
+           }
+           getProgresses();
+       }, [])
+   
+       const handleSearch = (event) =>{
+       
+           let value = event.target.value.toLowerCase();
+           let result = [];
+           console.log(value);
+   
+           result = allData.filter((data) => {
+                return data.entryDate.search(value) != -1;
+           });
+           setFilteredData(result);
+       }
+       return(    
         <> 
+        <div><Navbar/>
             <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-700px"}}>
                     <center>
                         <h3> TO DO SERVICES</h3>
@@ -92,6 +91,7 @@ export default function ToDoList() {
             <div className="container  text-white" style={{marginTop:"-700px" , paddingLeft:"400px"}}>
                 <h1>WORK PROGRESS MANAGEMENT</h1>
             </div>
+        </div>
         </>
     )
 }

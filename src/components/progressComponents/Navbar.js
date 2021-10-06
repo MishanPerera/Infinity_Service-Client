@@ -7,14 +7,14 @@ export default function Navbar() {
      <>
      <div style={{marginTop:"5px"}}>
         <ul className="nav flex-column"  className="sticky-top"><b>
-                    <li className="nav-item" className="text-white">
-                      <a className="nav-link active" aria-current="page" href="/ServiceFacilities" className="text-white">HOME</a>
+        <li className="nav-item" className="text-white">
+                      <a className="nav-link active" aria-current="page" href="/" className="text-white">HOME</a>
                     </li>
                     <li className="nav-item">
                       <Link to = "/add" className="nav-link" className="text-white"> ASSIGN EMPLOYEES</Link>
                     </li>
                     <li className="nav-item">
-                    <Link to = "/service/:date" className="nav-link" className="text-white"> VIEW TODO SERVICES</Link>
+                    <Link to = "/ServiceFacilities" className="nav-link" className="text-white"> VIEW TODO SERVICES</Link>
                     </li>
                     <li className="nav-item">
                     <Link to = "/search/:vNo" className="nav-link" className="text-white"> VIEW PROGRESS</Link>
@@ -26,7 +26,7 @@ export default function Navbar() {
                     <Link to= "/pro/:entryDate" className="nav-link" className="text-white">GENERATE REPORT</Link>
                     </li>
                     <li className="nav-item">
-                    <Link to= "/" className="nav-link" className="text-white">ALL PROGRESS</Link>
+                    <Link to= "/all" className="nav-link" className="text-white">ALL PROGRESS</Link>
                     </li>
             <br/><br/><br/><br/><br/>
             <li>

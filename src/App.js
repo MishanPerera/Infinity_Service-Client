@@ -24,16 +24,21 @@ import ViewProgress from './components/progressComponents/ViewStatus';
 import ToDoList from './components/progressComponents/ToDoList';
 import DeletePostpone from './components/progressComponents/DeletePostpone';
 import UpdateProgress from './components/progressComponents/UpdateProress';
+import Home from './components/Home';
 
 function App() {
   return (
     <Router>
       <div>
+    
+      <Route path="/" exact component={Home}/>
         <Route path="/addfacilities" exact component={AddServiceFacilities}/>
         <Route path="/facilities" exact component={ServiceFacilities}/>
         <Route path="/update/:fid" exact component={UpdateFacility}/>
         <Route path="/addnservice" exact component={AddNormalService}/>
         <Route path="/searchservice" exact component={SearchService}/>
+
+
         <Route path = "/additems" exact component = {AllItems}/>
         <Route path = "/additems" exact component = {AddItems} />
         <Route path = "/addprices" exact component = {AllPrices} />
@@ -42,6 +47,8 @@ function App() {
         <Route path = "/searchitems" exact component = {searchItems} />
         <Route path = "/searchavailability" exact component = {Availability} />
         <Route path = "/date" exact component = {Date} />
+
+        
         <Route path="/add" exact component={AddEmployee}/>
       <Route path="/addp" exact component={PostponeService}/>
       <Route path="/search/:vNo" exact component={ViewProgress}/>
@@ -49,7 +56,7 @@ function App() {
       <Route path="/get/:vNo" exact component={DeletePostpone}/>
       <Route path="/ServiceFacilities" exact component={ToDoList}/>
       <Route path="/pro/:entryDate" exact component={DailyProgress}/>
-      <Route path="/" exact component ={AllProgress} />
+      <Route path="/all" exact component ={AllProgress} />
       </div>
     </Router>  
   );

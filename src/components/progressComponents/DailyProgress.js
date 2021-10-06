@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import jspdf from "jspdf";
 import "jspdf-autotable"
-
+import Navbar from "./Navbar";
 
 
 export default function DailyProgress() {
@@ -57,6 +57,7 @@ export default function DailyProgress() {
                 tableRows.push(ticketData);
             })
             doc.text("Daily Progress Report", 14, 15).setFontSize(12);
+            
             // right down width height
             doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY: 35 });
             doc.save('Daily_Progress_report_.pdf');
@@ -64,6 +65,7 @@ export default function DailyProgress() {
 
     return(    
         <> 
+        <div><Navbar/>
             <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-700px"}}>
                 <center>
                     <h3> Daily Progress</h3>
@@ -108,6 +110,9 @@ export default function DailyProgress() {
             <div className="container  text-white" style={{marginTop:"-780px" , paddingLeft:"400px"}}>
                 <h1>WORK PROGRESS MANAGEMENT</h1>
             </div>
+    </div>
         </>
     )
 }
+
+    

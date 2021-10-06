@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import Header from "./Header";
+import Navbar from "./Navbar";
 
 export default function AllProgress(){
 
@@ -24,7 +24,7 @@ export default function AllProgress(){
 
 return(    
     <> 
-<div><Header/>
+<div><Navbar/>
       <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-600px"}}>
           <center>
                 <h3> All Progress</h3>

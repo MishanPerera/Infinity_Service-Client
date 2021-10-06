@@ -6,7 +6,7 @@
 import React ,{useState} from "react";
 import axios from "axios";
 import '../../myStyles.css'
-import  Navbar  from './Navbar';
+
 
 
 //creting a method for add prices to items
@@ -48,8 +48,8 @@ export default function AddPrices(){
     return(
 
         <div>
-
-        <Navbar/>
+{/* 
+        <Navbar/> */}
 
       <div className="addpriceform" > 
 

@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Header from "./Header";
+import Navbar from "./Navbar";
 
 export default function DeletePostpone() {
 
@@ -48,7 +48,7 @@ export default function DeletePostpone() {
     return (
 
         <> 
-        <div><Header/>
+        <div><Navbar/>
         <center>
         <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"30px",paddingLeft:"300px",marginTop:"-400px"}}>
        

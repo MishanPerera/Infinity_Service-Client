@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import Header from "./Header";
+import Navbar from "./Navbar";
 
 export default function PostponeService(){
 
@@ -36,7 +36,7 @@ export default function PostponeService(){
         
     return(
 <>
-<div><Header/>
+<div><Navbar/>
         <div className = "d-flex justify-content-center container w-50 text-white" style={{background:"#BBDEFB",paddingTop:"50px",paddingBottom:"10px",paddingRight:"50px",paddingLeft:"50px",marginTop:"-700px"}}>
                 
            <form className ="form-control row mb-3"onSubmit={Postpone}>
