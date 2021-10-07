@@ -33,13 +33,10 @@ export default function ViewReport(){
             let totalOtherExpenses = 0;
 
             res.data.map(Array => {
-                totalIncome += Array.income;
-                totalOrderCost += Array.orderCost;
-                totalSalary += Array.salary;
-                totalOtherExpenses += Array.otherExpenses;
-
-
-
+                totalIncome =+ Array.income;
+                totalOrderCost =+ Array.orderCost;
+                totalSalary =+ Array.salary;
+                totalOtherExpenses =+ Array.otherExpenses;
             })
             
             settotalIncome(totalIncome);
@@ -134,7 +131,7 @@ const generatePDF = tickets => {
                     <th class="text-center" scope="col">TOTAL ORDER COST(Rs)</th>
                     <th class="text-center" scope="col">TOTAL SALARY(Rs)</th>
                     <th class="text-center" scope="col">TOTAL UTILITY EXPENSES(Rs)</th>
-                    <th class="text-center" scope="col">DAILY PROFIT(Rs)</th>
+                    <th class="text-center" scope="col"> PROFIT(Rs)</th>
 
                 </tr>
             </thead>

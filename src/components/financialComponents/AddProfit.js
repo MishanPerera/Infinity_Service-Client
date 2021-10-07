@@ -124,7 +124,7 @@ export default function AddProfit(){
 
         <br></br>
         <div className="form-group">
-            <label for="totalProfit">&nbsp;&nbsp;<strong>Daily Profit(Rs)</strong></label>
+            <label for="totalProfit">&nbsp;&nbsp;<strong> Profit(Rs)</strong></label>
             <input type="number" className="form-control" id="totalProfit" placeholder="Enter Value" required value={totalProfit} onChange={(e)=>{
 
             settotalProfit(e.target.value);
@@ -133,12 +133,14 @@ export default function AddProfit(){
         </div>
 
         <br></br>
+            <center>
+        <button className="btn btn-primary" onClick={calculation}>Calculate Profit</button><br/><br/>
 
-        <button className="btn btn-primary" onClick={calculation}>Add</button><br/><br/>
- 
     <div className="col-12">
         <button className="btn btn-primary" type="submit">Submit form</button>
+        
      </div>
+     </center>
     </form>
 </div> 
 </div>

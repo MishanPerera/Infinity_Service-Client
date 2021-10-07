@@ -67,7 +67,9 @@ export default function AddPending(){
         <br></br>
  
     <div className="col-12">
+        <center>
         <button className="btn btn-primary" type="submit">Submit form</button>
+        </center>
      </div>
     </form>
 </div> 

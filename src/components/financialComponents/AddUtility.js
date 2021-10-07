@@ -157,8 +157,10 @@ export default function AddUtility(){
         </div>
 
         <br></br>
-
-        <button className="btn btn-primary" onClick={calculation}>Add</button><br/><br/>
+            
+        <center>
+        <button className="btn btn-primary" onClick={calculation}>View Total</button><br/><br/>
+        </center>
  
     <div className="col-12">
         <center>
