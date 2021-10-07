@@ -26,6 +26,18 @@ import DeletePostpone from './components/progressComponents/DeletePostpone';
 import UpdateProgress from './components/progressComponents/UpdateProress';
 import Home from './components/Home';
 
+
+import AddUtility from './components/financialComponents/AddUtility';
+import AddPending from './components/financialComponents/AddPending';
+import AddProfit from './components/financialComponents/AddProfit';
+import ViewPayment from './components/financialComponents/ViewPayment';
+import ViewPending from './components/financialComponents/ViewPending';
+import ViewReport from './components/financialComponents/ViewReport';
+import ViewService from './components/financialComponents/ViewService';
+import AddPayment from './components/financialComponents/AddPayment';
+
+
+
 function App() {
   return (
     <Router>
@@ -57,6 +69,16 @@ function App() {
       <Route path="/ServiceFacilities" exact component={ToDoList}/>
       <Route path="/pro/:entryDate" exact component={DailyProgress}/>
       <Route path="/all" exact component ={AllProgress} />
+
+
+      <Route path="/addutility" exact component={AddUtility}/>
+      <Route path="/addpending" exact component={AddPending}/>
+      <Route path="/addprofit" exact component={AddProfit}/>
+      <Route path="/viewpayment" exact component={ViewPayment}/>
+      <Route path="/viewpending" exact component={ViewPending}/>
+      <Route path="/viewreport" exact component={ViewReport}/>
+      <Route path="/addpayment" exact component={ViewService}/>
+      <Route path="/addpayment" exact component={AddPayment}/>
       </div>
     </Router>  
   );

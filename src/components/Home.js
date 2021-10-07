@@ -14,7 +14,7 @@ function Home() {
             <a href="#" class="button"><span>Supplier Management</span></a>
             <a href="/additems" class="button"><span>Inventory Management</span></a>
             <a href="/ServiceFacilities" class="button2"><span>Work Progress <br/>Management</span></a>
-            <a href="#" class="button"><span>Fiancial Management</span></a>
+            <a href="/addpayment" class="button"><span>Fiancial Management</span></a>
         </div>
      </div>
     </>
