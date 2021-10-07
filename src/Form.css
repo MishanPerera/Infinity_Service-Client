@@ -5,6 +5,8 @@ div .addFacilities{
     bottom: 760px;
     left: 260px;
 }
+
+
 div .view{
     width: 1250px;
     position: relative;
@@ -33,6 +35,11 @@ div .view{
     margin-right:30px;
     margin-top: 15px;
 }
+.nForm{
+    background-position:relative;
+    display:block;
+    margin-top: 15px;
+}
 
 #serviceType{
     width: 30%;
@@ -54,6 +61,7 @@ div .view{
     margin-top:20px;
     font-size: 18px;
 }
+
 
 #btnsubmit{
     width:200px;

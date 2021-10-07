@@ -23,13 +23,13 @@ export default function NavBar() {
                     <Link to = "/addnservice" className="nav-link" class="text-white"> ADD NORMAL SERVICE</Link>
                     </li>
                     <li className="nav-item">
-                    <Link to = "#" className="nav-link" class="text-white"> ADD FULL SERVICE</Link>
+                    <Link to = "/addfservice" className="nav-link" class="text-white"> ADD FULL SERVICE</Link>
                     </li>
                     <li className="nav-item">
                     <Link to = "/searchservice" className="nav-link" class="text-white"> SERACH SERVICE</Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="#" class="text-white">GENERATE REPORT</a>
+                      <Link to="/servicereport" className="nav-link" class="text-white">GENERATE REPORT</Link>
                     </li>
             <br/><br/>
             <li>

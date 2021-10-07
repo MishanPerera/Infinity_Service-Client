@@ -5,6 +5,8 @@ import ServiceFacilities from "./components/serviceComponents/ServiceFacilities"
 import UpdateFacility from './components/serviceComponents/UpdateFacility';
 import AddNormalService from './components/serviceComponents/AddNormalService';
 import SearchService from './components/serviceComponents/SearchService';
+import AddFullService from './components/serviceComponents/AddFullService';
+import GenerateReport from './components/serviceComponents/GenerateReport';
 
 import AddPrices from './components/inventoryComponents/AddPrices';
 import AllItems from './components/inventoryComponents/AllItems'
@@ -36,7 +38,10 @@ function App() {
         <Route path="/facilities" exact component={ServiceFacilities}/>
         <Route path="/update/:fid" exact component={UpdateFacility}/>
         <Route path="/addnservice" exact component={AddNormalService}/>
+        <Route path="/addfservice" exact component={AddFullService}/>
         <Route path="/searchservice" exact component={SearchService}/>
+        <Route path="/servicereport" exact component={GenerateReport}/>
+        
 
 
         <Route path = "/additems" exact component = {AllItems}/>
@@ -61,5 +66,4 @@ function App() {
     </Router>  
   );
 }
-
 export default App;

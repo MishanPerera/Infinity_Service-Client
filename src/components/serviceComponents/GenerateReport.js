@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
+import jspdf from "jspdf";
+import "jspdf-autotable"
 
 
-export default function SearchService() {
+export default function GenerateReport() {
 
     const [allData,setAllData] = useState([]);
     const [filteredData,setFilteredData] = useState([]);
@@ -49,37 +51,72 @@ export default function SearchService() {
         setFilteredData(result);
     }
 
-    const handleFSearch = (event) =>{
+        const handleFSearch = (event) =>{
     
-        let value = event.target.value.toLowerCase();
-        let result = [];
-        console.log(value);
+          let value = event.target.value.toLowerCase();
+          let result = [];
+          console.log(value);
   
-        result = allFData.filter((data) => {
-              return data.entryDate.search(value) != -1;
-        });
-        setFilteredFData(result);
-    } 
-          
-    const cancelNormalService=(sid) =>{
-          axios.delete(`http://localhost:8070/nservice/cancel/${sid}`).then(()=>{
-              alert("Cancel Normal Service Succesfully!");
-              window.location.reload(false);
-          }).catch((e) => {
-              alert(e.message);
-          })
-            
-    }
-    
-    const cancelFullService=(sid) =>{
-        axios.delete(`http://localhost:8070/fservice/cancel/${sid}`).then(()=>{
-            alert("Cancel Full Service Succesfully!");
-            window.location.reload(false);
-        }).catch((e) => {
-            alert(e.message);
-        })
+          result = allFData.filter((data) => {
+               return data.entryDate.search(value) != -1;
+          });
+          setFilteredFData(result);
+          }  
+
+        //generate report pdf code
+
+        const generateNormalPDF = tickets => {
+
+            const doc = new jspdf();
+            const tableColumn = ["Vehicle No", "Customer Name", "Entry Date", "Handover Date","Total Facility Price","Labor Cost","Total Service Cost"];
+            const tableRows = [];
         
-    }
+            tickets.map(ticket => {
+                const ticketData = [
+                    ticket.vNo,
+                    ticket.cusName,
+                    ticket.entryDate,
+                    ticket.handoverDate,
+                    ticket.totalFPrice,
+                    ticket.laborCost,
+                    ticket.totalCost
+                
+                ];
+                tableRows.push(ticketData);
+            })
+            doc.text("Monthly Normal Service Report", 14, 15).setFontSize(12);
+            
+            // right down width height
+            doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY: 35 });
+            doc.save('Monthly_Normal_Service_Report.pdf');
+        };
+
+        const generateFullPDF = tickets => {
+
+            const doc = new jspdf();
+            const tableColumn = ["Vehicle No", "Customer Name", "Entry Date", "Handover Date","Description","Total Facility Price","Labor Cost","Total Service Cost"];
+            const tableRows = [];
+        
+            tickets.map(ticket => {
+                const ticketData = [
+                    ticket.vNo,
+                    ticket.cusName,
+                    ticket.entryDate,
+                    ticket.handoverDate,
+                    ticket.description,
+                    ticket.totalFPrice,
+                    ticket.laborCost,
+                    ticket.totalCost
+                
+                ];
+                tableRows.push(ticketData);
+            })
+            doc.text("Monthly Full Service Report", 14, 15).setFontSize(12);
+            
+            // right down width height
+            doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 8, }, startY: 35 });
+            doc.save('Monthly_Full_Service_Report.pdf');
+        };
 
     return(    
         <> 
@@ -104,7 +141,6 @@ export default function SearchService() {
                                 <th >Total Facility Price</th>
                                 <th >Labor Cost</th>
                                 <th >Total Service Cost</th>
-                                <th >CANCEL</th>
                                 </tr>
                             </thead>
 
@@ -119,7 +155,6 @@ export default function SearchService() {
                                             <td>{value.totalFPrice}</td>
                                             <td>{value.laborCost}</td>
                                             <td>{value.totalCost}</td>
-                                            <td><button className="btn btn-primary btn-sm" style={{background:"#2f3e54", width:"100px"}} onClick={() =>  cancelNormalService(value._id)}><b>CANCEL</b></button></td>
                                         </tr>
                                     )
                                     })
@@ -128,10 +163,11 @@ export default function SearchService() {
                         </table>
                     </div><br />
                 <center>
-                    
+                <button type="print" className="btn btn-primary" onClick={() => generateNormalPDF(filteredData)}>Generate Report</button>
                 </center>
             </div>
             <br></br>
+
             <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"10px"}}>
                 <center>
                     <h3> FULL SERVICE</h3>
@@ -153,7 +189,6 @@ export default function SearchService() {
                                 <th >Total Facility Price</th>
                                 <th >Labor Cost</th>
                                 <th >Total Service Cost</th>
-                                <th >CANCEL</th>
                                 </tr>
                             </thead>
 
@@ -168,7 +203,7 @@ export default function SearchService() {
                                             <td>{value.description}</td>
                                             <td>{value.totalFPrice}</td>
                                             <td>{value.laborCost}</td>
-                                            <td>{value.totalCost}</td><td><button className="btn btn-primary btn-sm" style={{background:"#2f3e54", width:"100px"}} onClick={() =>  cancelFullService(value._id)}><b>CANCEL</b></button></td>
+                                            <td>{value.totalCost}</td>
                                         </tr>
                                     )
                                     })
@@ -177,9 +212,10 @@ export default function SearchService() {
                         </table>
                     </div><br />
                 <center>
-                    
+                    <button type="print" className="btn btn-primary" onClick={() => generateFullPDF(filteredFData)}>Generate Report</button>
                 </center>
             </div>
         </>
     )
 }
+
