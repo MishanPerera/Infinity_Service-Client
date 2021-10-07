@@ -41,7 +41,7 @@ export default function AddServiceFacilities(){
         
                 <div id="addfac">
                     <label className="falabel"for="serviceType"><b>Service Type</b></label>
-                    <select className="form-select" id="serviceType"
+                    <select className="form-select" id="serviceType" required
                     onChange={(e)=>{
                         setServiceType(e.target.value);
                     }}>
@@ -61,7 +61,7 @@ export default function AddServiceFacilities(){
 
                 <div id="addfac" className="mb-3">
                     <label className="falabel" for="facilityCost"><b>Service Facility Cost (Rs)</b></label>
-                    <input type="text" className="form-control" id="facilityCost" placeholder="200"
+                    <input type="number" className="form-control" id="facilityCost" placeholder="200"
                     onChange={(e)=>{
                         setFacilityCost(e.target.value);
                     }}/>

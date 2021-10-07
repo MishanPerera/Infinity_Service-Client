@@ -33,38 +33,39 @@ export default function UpdateFacility(){
     return(
         <div>
             <NavBar/>
-        <form className="addFacilities" style={{  background: "#BBDEFB" }}>
-            <div className="mb-3">
-                <label for="serviceType" class="form-label">Service Type</label>
-                <input type="text" class="form-control" id="serviceType" value={serviceType} readOnly
-                onChange={(e)=> {
-      
-                    setServiceType(e.target.value);
-      
-                }}/>
-            </div>
-       
-            <div class="mb-3">
-                <label for="facilityName" class="form-label">Service Name</label>
-                <input type="text" class="form-control" id="facilityName" value={facilityName} readOnly
-                onChange={(e)=> {
-      
-                    setFacilityName(e.target.value);
-      
-                }}/>
-            </div>
-       
-            <div class="mb-3">
-                <label for="facilityCost" class="form-label">Service Facility Cost (Rs)</label>
-                <input type="text" class="form-control" id="facilityCost" value={facilityCost} 
-                onChange={(e)=> {
-      
-                    setFacilityCost(e.target.value);
-                }}/>
-            </div>
-       <center>
-            <Link to={"/facilities"}><button type="submit" class="btn btn-primary" onClick={()=>{updateAPIData();}}>UPDATE</button></Link></center>
-        </form>
+        <div className="addFacilities">
+        <center>
+            <h2 className="text-white">SERVICE MANAGEMENT</h2>
+            </center><br/>
+            <form className="Form" style={{  background: "#BBDEFB"}}>
+        
+                <div id="addfac">
+                    <label className="falabel"for="serviceType"><b>Service Type</b></label>
+                    <input className="form-select" id="serviceType"  value={serviceType} readOnly
+                    onChange={(e)=>{
+                        setServiceType(e.target.value);
+                    }}/>
+                </div>
+
+                <div  id="addfac"className="mb-3">
+                    <label className="falabel" for="facilityName"><b>Service Name</b></label>
+                    <input type="text" className="form-control" id="facilityName" value={facilityName} readOnly
+                    onChange={(e)=>{
+                        setFacilityName(e.target.value);
+                    }}/>
+                </div>
+
+                <div id="addfac" className="mb-3">
+                    <label className="falabel" for="facilityCost"><b>Service Facility Cost (Rs)</b></label>
+                    <input type="number" className="form-control" id="facilityCost" value={facilityCost}
+                    onChange={(e)=>{
+                        setFacilityCost(e.target.value);
+                    }}/>
+                </div>
+                <Link to={"/facilities"}><button type="submit" id="btnsubmit" className="btn btn-primary" onClick={()=>{updateAPIData();}}><b>SUBMIT</b></button></Link>
+
+            </form>
+        </div>
         </div>
 
     )
