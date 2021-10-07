@@ -11,9 +11,9 @@ function Home() {
             <a href="#" class="button"><span>Employee Management</span></a>
             <a href="#" class="button"><span>Vehicle Management</span></a>
             <a href="/addfacilities" class="button"><span>Service Management</span></a>
-            <a href="#" class="button"><span>Supplier Management</span></a>
+            <a href="/add1" class="button"><span>Supplier Management</span></a>
             <a href="/additems" class="button"><span>Inventory Management</span></a>
-            <a href="/add" class="button2"><span>Work Progress <br/>Management</span></a>
+            <a href="/ServiceFacilities" class="button2"><span>Work Progress <br/>Management</span></a>
             <a href="#" class="button"><span>Fiancial Management</span></a>
         </div>
      </div>

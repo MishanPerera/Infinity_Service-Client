@@ -54,7 +54,7 @@ export default function PostponeService(){
              
                <div className="mb-3">
                    <label htmlFor="handoverDate" className="form-label">Finishing Date</label>
-                   <input type="text" className="form-control" id="handoverDate" placeholder="dd/mm/yr"
+                   <input type="date" className="form-control" id="handoverDate" placeholder="dd/mm/yr"
                    onChange={(e)=>{
                        setHdate(e.target.value);
                   }}/>

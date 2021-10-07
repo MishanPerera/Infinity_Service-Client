@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from "react";
 import axios from "axios";
-//import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 export default function UpdateProgress(){
@@ -33,7 +32,7 @@ export default function UpdateProgress(){
 
         })
         //window.location.reload(false);
-        window.location="/";
+        window.location="/all";
     }
     
       
@@ -63,7 +62,7 @@ export default function UpdateProgress(){
             
             <div class="mb-3">
                 <label for="handoverDate" class="form-label">Finishing Date</label>
-                <input type="text" class="form-control" id="handoverDate" value={handoverDate}
+                <input type="date" class="form-control" id="handoverDate" value={handoverDate}
                 onChange={(e)=> {
       
                     setHdate(e.target.value);
