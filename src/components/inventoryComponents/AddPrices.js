@@ -9,7 +9,7 @@ import '../../myStyles.css'
 
 
 
-//creting a method for add prices to items
+//creting a function for add prices to items
 export default function AddPrices(){
 
     const [itemNo, setitemNo] = useState("");
@@ -47,14 +47,14 @@ export default function AddPrices(){
 
     return(
 
-        <div>
-{/* 
-        <Navbar/> */}
+    <div>
+        
+        {/* <Navbar/> */}
 
-      <div className="addpriceform" > 
+        <div className="addpriceform" > 
 
             <center>
-            <h5 class="text-white">ADD SELLING PRICE</h5>
+            <h5 className="text-white">ADD SELLING PRICE</h5>
             </center>
             <br></br>
 
@@ -112,13 +112,13 @@ export default function AddPrices(){
                 <br></br>
 
             <center>
-            <button class=" fa fa-search btn btn-danger" type="submit" className="btn btn-primary">Submit</button>
+            <button className=" fa fa-search btn btn-danger" type="submit" className="btn btn-primary">Submit</button>
             </center>
             <br></br>
             </form>
         </div>
 
-        </div>
+    </div>
 
 
     )

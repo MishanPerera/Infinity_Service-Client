@@ -29,7 +29,7 @@ function Navbar() {
                       <Link to = "/searchavailability" className="nav-link" class="text-white"> AVAILABILITY</Link>
                     </li>
                     <li className="nav-item">
-                    <Link to = "/date" className="nav-link" class="text-white"> GENERATE STOCK REPORT</Link>
+                    <Link to = "/report" className="nav-link" class="text-white"> GENERATE STOCK REPORT</Link>
                       
                     </li>
             <br/><br/>

@@ -14,6 +14,7 @@ import searchItems from './components/inventoryComponents/SearchItems';
 import Availability from './components/inventoryComponents/Availability';
 import Date from './components/inventoryComponents/Date';
 import AddItems from "./components/inventoryComponents/AddItems";
+import StockReport from './components/inventoryComponents/StockReport';
 
 
 import AddEmployee from './components/progressComponents/AssignEmployee';
@@ -25,6 +26,7 @@ import ToDoList from './components/progressComponents/ToDoList';
 import DeletePostpone from './components/progressComponents/DeletePostpone';
 import UpdateProgress from './components/progressComponents/UpdateProress';
 import Home from './components/Home';
+
 
 function App() {
   return (
@@ -46,7 +48,7 @@ function App() {
         <Route path = "/searchsupplier" exact component = {SearchSupplier} />
         <Route path = "/searchitems" exact component = {searchItems} />
         <Route path = "/searchavailability" exact component = {Availability} />
-        <Route path = "/date" exact component = {Date} />
+        <Route path = "/report" exact component = {StockReport} />
 
         
         <Route path="/add" exact component={AddEmployee}/>

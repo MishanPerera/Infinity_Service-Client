@@ -25,11 +25,13 @@ import  Navbar  from './Navbar';
     const [quantity, setQuantity] = useState(0);
     const [readOnly, setreadOnly] = useState(true);
     const [showError, setshowError] = useState(false);
+    const [newQuantity, setnewQuantity] = useState(0);
   
   
-    const  loadAvailability = async () => {
-      debugger
-      await axios.get(`http://localhost:8070/availability/get/${itemCode}`).then((res) => {
+  
+    const  loadAvailability = () => {
+     
+      axios.get(`http://localhost:8070/availability/get/${itemCode}`).then((res) => {
         console.log(res.data)
         let total=0;
 
@@ -55,16 +57,41 @@ import  Navbar  from './Navbar';
         setreadOnly(false)
     }
   
-    //creting a method for reduce used part
+    //creting a function for reduce used part
     const getQuantity=()=>{
       let balance=0;
-     if(itemAvailability<quantity){
-      setshowError(true)
-     }else{
-      setshowError(false)
-      balance=itemAvailability-quantity;
-     }
-  }
+      if(itemAvailability<quantity){
+
+        setshowError(true)
+      }else{
+        setshowError(false)
+        balance=itemAvailability-quantity;
+        setnewQuantity(balance)
+        updateData();
+      }
+      
+    
+    }
+
+      //creating function to update new availability
+      const updateData = async () => {
+        
+        const newcount = {
+            itemAvailability:itemAvailability-quantity
+        };
+
+              await axios
+                .put(`http://localhost:8070/availability/update/${itemCode}`, newcount)
+                .then(() => {
+                  alert("Successfully New Availability Updated !");
+                  window.location.reload(true);
+                })
+                .catch((err) => {
+                  alert(err);
+                });
+                loadAvailability();
+
+        }
  
 
 return (
@@ -75,11 +102,11 @@ return (
     <div className="view">
 
   <center>
-    <h1 class="text-white">INVENTORY MANAGEMENT</h1>
+    <h1 className="text-white">INVENTORY MANAGEMENT</h1>
   </center>
     <br></br><br></br>
   <center>
-    <h5 class="text-white">ITEM AVAILABILITY</h5>
+    <h5 className="text-white">ITEM AVAILABILITY</h5>
   </center>
   <br></br>
   <br></br>
@@ -88,26 +115,26 @@ return (
 
 <div style={{  background: "#BBDEFB" }}>
 
-      <div class="row g-3 align-items-center">
-      <div className="itemsearchlable2">
-        <div class="col-auto">
-          <label for="inputitemNo"  ><strong>ITEM CODE</strong></label>
+      <div className="row g-3 align-items-center">
+        <div className="itemsearchlable2">
+          <div className="col-auto">
+            <label for="inputitemNo"  ><strong>ITEM CODE</strong></label>
           </div>
-          </div>
+        </div>
         <div className="itemsearch1">
-        <div class="col-auto">
-          <input type="text" id="inputitemNo" class="form-control" 
+          <div className="col-auto">
+            <input type="text" id="inputitemNo" className="form-control" 
             minLength={6} maxLength={6} value={itemCode}  placeholder="Enter Item No" required 
             onChange={(e)=>{
 
               setItemCode(e.target.value);
 
-          }}  />
+            }}  />
 
         </div>
-        </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-             <button class="btn btn-primary me-md-2" type="submit" onClick={loadAvailability}>Search Availability</button>
+      </div>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+             <button className="btn btn-primary me-md-2" type="submit" onClick={loadAvailability}>Search Availability</button>
         </div>
 
        
@@ -117,7 +144,7 @@ return (
           <Col md={10}>
 
           <br></br><br></br>
-        <table class="table table-striped table-light table table-hover">
+        <table className="table table-striped table-light table table-hover">
         <tbody>
               <tr>
                 <td>ITEM NO: </td>
@@ -154,7 +181,7 @@ return (
                     type="text"
                     className="form-control"
                     id="quantity"
-                    readOnly
+                    readOnly={readOnly}
                     value={quantity}
                     onChange={(e) => {
                     setQuantity(e.target.value);
@@ -162,7 +189,7 @@ return (
                 />
                 </Col>
                 <Col md={1}>
-                       <button class="btn btn-outline-success btn-sm" onClick={activate}>Edit</button>
+                       <button className="btn btn-outline-success btn-sm" onClick={activate}>Edit</button>
                    </Col>
                 </Row>
                 {showError?
@@ -183,7 +210,7 @@ return (
         <Row>
           <Col md={5}></Col>
           <Col md={5}>
-          <button class="btn btn-success" type="submit" onClick={getQuantity}>GET</button>
+          <button className="btn btn-success" type="submit" onClick={getQuantity}>GET</button>
           </Col>
           <Col md={2}></Col>
       </Row>
@@ -196,8 +223,8 @@ return (
 
       <br></br><br></br> <br></br><br></br>
 
-      <table class="table table-striped table-light table table-hover">
-      <tbody>
+      <table className="table table-striped table-light table table-hover">
+        <tbody>
             <tr>
               <td>ITEM NO: </td>
               <td>{itemNo}</td>
@@ -223,7 +250,7 @@ return (
               <td>{itemAvailability}</td>
             </tr>
 
-          </tbody>
+        </tbody>
            
       </table>
       <br></br>

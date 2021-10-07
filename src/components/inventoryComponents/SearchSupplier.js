@@ -10,7 +10,7 @@ import '../../myStyles.css'
 import  Navbar  from './Navbar';
 
 
-  //creting a method for search suppliers
+  //creting a function for search suppliers
   export default function  SearchSupplier() {
     
   
@@ -46,38 +46,38 @@ import  Navbar  from './Navbar';
     
       <div className="view">
 
-    <center>
-      <h1 class="text-white">INVENTORY MANAGEMENT</h1>
-    </center>
-      <br></br><br></br>
-    <center>
-      <h5 class="text-white">SUPPLIER DETAILS</h5>
-    </center>
-    <br></br>
-    <br></br>
+          <center>
+            <h1 class="text-white">INVENTORY MANAGEMENT</h1>
+          </center>
+            <br></br><br></br>
+          <center>
+            <h5 class="text-white">SUPPLIER DETAILS</h5>
+          </center>
+          <br></br>
+          <br></br>
     
    
 
-<div style={{  background: "#BBDEFB" }}>
+    <div style={{  background: "#BBDEFB" }}>
 
         <div class="row g-3 align-items-center">
         <div className="itemsearchlable">
           <div class="col-auto">
             <label for="inputitemNo"  ><strong>ITEM CODE</strong></label>
-            </div>
-            </div>
-          <div className="itemsearch">
-          <div class="col-auto">
+          </div>
+        </div>
+        <div className="itemsearch">
+        <div class="col-auto">
             <input type="text" id="inputitemNo" class="form-control" 
               minLength={6} maxLength={6} value={itemCode}  placeholder="Enter Item No" required 
               onChange={(e)=>{
 
-                setItemCode(e.target.value);
+              setItemCode(e.target.value);
 
             }}  />
 
           </div>
-          </div>
+        </div>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                <button class="btn btn-primary me-md-2" type="submit" onClick={loadSellerDetails}>Search Supplier</button>
           </div>
@@ -89,7 +89,7 @@ import  Navbar  from './Navbar';
         <br></br><br></br> <br></br><br></br>
 
         <table class="table table-striped table-light table table-hover">
-        <tbody>
+          <tbody>
               <tr>
                 <td>ITEM NO: </td>
                 <td>{itemNo}</td>
@@ -107,7 +107,7 @@ import  Navbar  from './Navbar';
                 <td>{supplierName}</td>
               </tr>
               
-            </tbody>
+          </tbody>
              
         </table>
         <br></br>
@@ -118,7 +118,7 @@ import  Navbar  from './Navbar';
 
         </div>
     </div>
-    </div>
+  </div>
   );
 }
 

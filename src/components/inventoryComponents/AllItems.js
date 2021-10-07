@@ -17,8 +17,9 @@ export default function AllItems(){
    
 
 
-  // + adding the use
-  useEffect(() => {
+    // + adding the use
+    //fetching all the stock details
+    useEffect(() => {
     function getData() {
         axios.get("http://localhost:8070/inventory/").then((res) => {
             setItems(res.data);
@@ -30,7 +31,7 @@ export default function AllItems(){
     getData();
 
 
-}, [])
+    }, [])
    
 
    return (
@@ -41,25 +42,25 @@ export default function AllItems(){
   
     <div className="view" >
     <center>
-    <h1 class="text-white">INVENTORY MANAGEMENT</h1>
+    <h1 className="text-white">INVENTORY MANAGEMENT</h1>
     </center>
     <br></br><br></br>
-    <center><h5 class="text-white">STOCK DETAILS</h5></center>
+    <center><h5 className="text-white">STOCK DETAILS</h5></center>
     <br></br>
     <div>
-        <table class="table table-striped table-hover table-sm caption-top" style={{  background: "#BBDEFB" }} >
+        <table className="table table-striped table-hover table-sm caption-top" style={{  background: "#BBDEFB" }} >
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">ITEM NO</th>
-                    <th class="text-center" scope="col">STOCK NO</th>
-                    <th class="text-center" scope="col">CATEGORY</th>
-                    <th class="text-center" scope="col">NAME</th>
-                    <th class="text-center" scope="col">BRAND</th>
-                    <th class="text-center" scope="col">DATE</th>
-                    <th class="text-center" scope="col">VOLUME (ml)</th>
-                    <th class="text-center" scope="col">QUANTITY</th>
-                    <th class="text-center" scope="col">SUPPLIER NAME</th>
-                    <th class="text-center" scope="col">BUYING PRICE (Rs)</th>
+                    <th className="text-center" scope="col">ITEM NO</th>
+                    <th className="text-center" scope="col">STOCK NO</th>
+                    <th className="text-center" scope="col">CATEGORY</th>
+                    <th className="text-center" scope="col">NAME</th>
+                    <th className="text-center" scope="col">BRAND</th>
+                    <th className="text-center" scope="col">DATE</th>
+                    <th className="text-center" scope="col">VOLUME (ml)</th>
+                    <th className="text-center" scope="col">QUANTITY</th>
+                    <th className="text-center" scope="col">SUPPLIER NAME</th>
+                    <th className="text-center" scope="col">BUYING PRICE (Rs)</th>
                 </tr>
             </thead>
 
@@ -67,20 +68,20 @@ export default function AllItems(){
             <tbody>
             {items.map((items) => {
                     
-                    return (
-                        <tr >
-                            <td class="text-center" >{items.itemNo}</td>
-                            <td class="text-center">{items.stockNo}</td>
-                            <td class="text-center">{items.category}</td>
-                            <td class="text-center">{items.name}</td>
-                            <td class="text-center">{items.brand}</td>
-                            <td class="text-center">{items.date}</td>
-                            <td class="text-center">{items.volume}</td>
-                            <td class="text-center">{items.quantity}</td>
-                            <td class="text-center">{items.supplierName}</td>
-                            <td class="text-center">{items.buyingPrice}</td>
+                return (
+                    <tr >
+                        <td className="text-center" >{items.itemNo}</td>
+                        <td className="text-center">{items.stockNo}</td>
+                        <td className="text-center">{items.category}</td>
+                        <td className="text-center">{items.name}</td>
+                        <td className="text-center">{items.brand}</td>
+                        <td className="text-center">{items.date}</td>
+                        <td className="text-center">{items.volume}</td>
+                        <td className="text-center">{items.quantity}</td>
+                        <td className="text-center">{items.supplierName}</td>
+                        <td className="text-center">{items.buyingPrice}</td>
                             
-                        </tr>
+                    </tr>
                     );
                     
                 })}

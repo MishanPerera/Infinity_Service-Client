@@ -28,7 +28,7 @@ export default function AllPrices(){
     getData();
 
 
-}, [])
+    }, [])
    
 
    return (
@@ -39,20 +39,20 @@ export default function AllPrices(){
   
     <div className="view" >
     <center>
-    <h1 class="text-white">INVENTORY MANAGEMENT</h1>
+    <h1 className="text-white">INVENTORY MANAGEMENT</h1>
     </center>
     <br></br><br></br>
-    <center><h5 class="text-white">SELLING PRICE DETAILS</h5></center>
+    <center><h5 className="text-white">SELLING PRICE DETAILS</h5></center>
     <br></br>
     <div>
-        <table class="table table-striped table-hover table-sm caption-top" style={{  background: "#BBDEFB" }} >
+        <table className="table table-striped table-hover table-sm caption-top" style={{  background: "#BBDEFB" }} >
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">ITEM NO</th>
-                    <th class="text-center" scope="col">CATEGORY</th>
-                    <th class="text-center" scope="col">NAME</th>
-                    <th class="text-center" scope="col">BRAND</th>
-                    <th class="text-center" scope="col">SELLING PRICE (Rs)</th>
+                    <th className="text-center" scope="col">ITEM NO</th>
+                    <th className="text-center" scope="col">CATEGORY</th>
+                    <th className="text-center" scope="col">NAME</th>
+                    <th className="text-center" scope="col">BRAND</th>
+                    <th className="text-center" scope="col">SELLING PRICE (Rs)</th>
                 </tr>
             </thead>
 
@@ -60,15 +60,16 @@ export default function AllPrices(){
             <tbody>
             {prices.map((prices) => {
                     
-                    return (
-                        <tr >
-                            <td class="text-center" >{prices.itemNo}</td>
-                            <td class="text-center">{prices.category}</td>
-                            <td class="text-center">{prices.name}</td>
-                            <td class="text-center">{prices.brand}</td>
-                            <td class="text-center">{prices.sellingPrice}</td>
+                return (
+                    <tr >
                             
-                        </tr>
+                        <td className="text-center" >{prices.itemNo}</td>
+                        <td className="text-center">{prices.category}</td>
+                        <td className="text-center">{prices.name}</td>
+                        <td className="text-center">{prices.brand}</td>
+                        <td className="text-center">{prices.sellingPrice}</td>
+                            
+                    </tr>
                     );
                     
                 })}
@@ -78,7 +79,7 @@ export default function AllPrices(){
         <br></br>
     </div>
 
-</div>
+    </div>
 
 </div>
 

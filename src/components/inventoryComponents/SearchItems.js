@@ -26,7 +26,7 @@ import  Navbar  from './Navbar';
         const [readOnly, setreadOnly] = useState(true);
       
     
-//creting a method for retrieve data
+//creting a function for retrieve data
 
     const  loadItemDetails = async () => {
       await axios.get(`http://localhost:8070/price/get/${itemCode}`).then((res) => {
@@ -45,13 +45,13 @@ import  Navbar  from './Navbar';
     };
   
 
-//creting a method for set readonly
+//creting a function for set readonly
     const activate=()=>{
         setreadOnly(false)
     }
 
 
-//creting a method for update selling price
+//creting a function for update selling price
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -77,21 +77,21 @@ import  Navbar  from './Navbar';
             };
 
 
-//creting a method for delete items
+//creting a function for delete items
 
-      const  onDelete = async () => {
+    const  onDelete = async () => {
       
-              await axios
-                .delete(`http://localhost:8070/price/delete/${itemCode}`)
-                .then(() => {
-                  window.alert('Do you want to delete the selected item?')
-                  alert("Item Deleted Successfully");
-                  window.location.reload(true);
-                })
-                .catch((err) => {
-                  alert(err);
-                });
-            };
+          await axios
+            .delete(`http://localhost:8070/price/delete/${itemCode}`)
+            .then(() => {
+              window.alert('Do you want to delete the selected item?')
+              alert("Item Deleted Successfully");
+              window.location.reload(true);
+              })
+              .catch((err) => {
+                alert(err);
+          });
+      };
 
 
 
@@ -105,11 +105,11 @@ import  Navbar  from './Navbar';
           <div className="view">
 
                 <center>
-                  <h1 class="text-white">INVENTORY MANAGEMENT</h1>
+                  <h1 className="text-white">INVENTORY MANAGEMENT</h1>
                 </center>
                   <br></br>
                 <center>
-                  <h5 class="text-white">ITEM DETAILS</h5>
+                  <h5 className="text-white">ITEM DETAILS</h5>
                 </center>
                 <br></br>
             
@@ -119,15 +119,15 @@ import  Navbar  from './Navbar';
 
 
                           
-                          <div class="row g-3 align-items-center">
+                          <div className="row g-3 align-items-center">
                           <div className="itemsearchlable">
-                            <div class="col-auto">
+                            <div className="col-auto">
                               <label for="inputitemCode"  ><strong>ITEM CODE</strong></label>
                               </div>
                               </div>
                             <div className="itemsearch">
-                            <div class="col-auto">
-                              <input type="text" id="inputitemCode" class="form-control" 
+                            <div className="col-auto">
+                              <input type="text" id="inputitemCode" className="form-control" 
                                 minLength={6} maxLength={6} value={itemCode}  placeholder="Enter Item No" required 
                                 onChange={(e)=>{
 
@@ -137,8 +137,8 @@ import  Navbar  from './Navbar';
 
                             </div>
                                 </div>
-                                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                  <button class="btn btn-primary me-md-2" type="submit" onClick={loadItemDetails}>Search Supplier</button>
+                                  <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                                  <button className="btn btn-primary me-md-2" type="submit" onClick={loadItemDetails}>Search Supplier</button>
                                 </div>
                               <br></br><br></br>
                             
@@ -149,7 +149,7 @@ import  Navbar  from './Navbar';
                                 <Row>
                                     <Col md={1}></Col>
                                     <Col md={10}>
-                                    <table class="table table-striped table-light table table-hover">
+                                    <table className="table table-striped table-light table table-hover">
                                         <tbody>
                                             <tr>
                                                 <td>ITEM NO: </td>
@@ -228,7 +228,7 @@ import  Navbar  from './Navbar';
                                                     />
                                                 </Col>
                                                 <Col md={1}>
-                                                      <button class="btn btn-outline-success btn-sm" onClick={activate}>Edit</button>
+                                                      <button className="btn btn-outline-success btn-sm" onClick={activate}>Edit</button>
                                                 </Col>
                                                 </Row>
                                                 </td>
@@ -249,10 +249,10 @@ import  Navbar  from './Navbar';
                         <Row>
                             <Col md={9}></Col>
                             <Col md={1}>
-                            <button class="btn btn-primary me-md-2" type="submit" onClick={onSubmit}>Update</button>
+                            <button className="btn btn-primary me-md-2" type="submit" onClick={onSubmit}>Update</button>
                             </Col>
                             <Col md={1}>
-                            <button class="btn btn-danger" type="submit" onClick={onDelete}>Delete</button>
+                            <button className="btn btn-danger" type="submit" onClick={onDelete}>Delete</button>
                             </Col>
                             <Col md={1}></Col>
                         </Row>
