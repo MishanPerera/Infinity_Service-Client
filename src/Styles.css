@@ -1,0 +1,72 @@
+div.viewpending{
+    position: relative;
+    left: 700px;
+    width: 800px;
+    bottom: 800px;
+}
+
+div.addpayment{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 700px;
+
+}
+
+div.addpendingform{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 800px;
+}
+
+div.addprofitform{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 800px;
+}
+
+div.addutilityform{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 800px;
+}
+
+div.view{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 800px;
+}
+
+div.viewpending{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 800px;
+
+}
+
+div.viewreport{
+    position: relative;
+    left: 265px;
+    width: 1240px;
+    bottom: 800px;
+}
+
+div.viewtable{
+    position: relative;
+    left: 400px;
+    width: 1240px;
+    bottom: 800px;
+}
+
+div.manuka{
+    left: 400px;
+    width: 1240px;
+    bottom: 800px;
+
+}
+

@@ -12,25 +12,7 @@ export default function AddNormalService(){
     const [laborCost, setLaborCost]= useState("");
     const [totalCost, setTotalCost]= useState(0);
 
-    //const [facilityCost, setFacilityCost]= useState([]);
     const [facilities, setFacilities] = useState([]);
-
-    /*function calculation(){
-        setTotalFPrice(totalFPrice = totalFPrice + facilities.facilityCost)
-    }*/
-
-    
-
-    //const Add=()=>{
-        //let sum= 0;
-        //const array1 = [facilities.facilityCost];
-        //facilities.foreach(facilityies => sum += facilities.facilityCost)
-        /*let Arr = [facilities.facilityCost];
-        const sum = Arr.reduce((result, facilityCost)=>result+facilityCost);
-        console.log(sum);*/
-       // setTotalFPrice(sum);
-    
-    //}
     
 
     useEffect(() => {
@@ -79,30 +61,30 @@ export default function AddNormalService(){
     }
 
     useEffect(()=>{
-        document.querySelector('#totalFPrice').value="";
+        document.getElementById('totalFPrice').value="";
     },[])
 
     useEffect(()=>{
-        document.querySelector('#totalCost').value="";
+        document.getElementById('totalCost').value="";
     },[]) 
-    
+
     const Add=(e)=>{
         e.preventDefault();
-        let currentNum=document.querySelector('#Fcost').value
+        let currentNum=document.getElementById('Fcost').value
         let sum= totalFPrice+parseInt(currentNum);
         setTotalFPrice(sum);
-        document.querySelector('#Fcost').value="";
+        document.getElementById('Fcost').value="";
           
     }
 
     const calculation=(e)=>{
         e.preventDefault();
-        let currentNum1=document.querySelector('#totalFPrice').value
-        let currentNum2=document.querySelector('#laborCost').value
-        let sum= totalCost+parseInt(currentNum1)+parseInt(currentNum2);
+        let currentNum1=parseInt(document.getElementById('totalFPrice').value);
+        let currentNum2=parseInt(document.getElementById('laborCost').value);
+        
+        let sum = document.getElementById('totalCost').value = currentNum1+currentNum2;
+
         setTotalCost(sum);
-        //document.querySelector('#totalFPrice').value="";
-        //document.querySelector('#laborCost').value="";
           
     }
 
@@ -151,7 +133,7 @@ export default function AddNormalService(){
                     }}/>
                 </div>
                 <center>
-                    <h3>SERVICE MANAGEMENT</h3>
+                    <h3>SERVICE FACILITIES</h3>
                 </center>
                 <div className="mb-3">
                     {
@@ -168,12 +150,12 @@ export default function AddNormalService(){
                     }
                 </div>
                 <div className="mb-3">
-                    <label >Total Facility Price</label>
+                    <label >Facility Price</label>
                     <input type="text" className="form-control" id="Fcost" placeholder="Enter Facility Cost"/>
                 </div>
                 <button className="btn btn-primary" onClick={Add}>Add</button>
                 <div className="mb-3">
-                    <label for="totalFPrice">Total Service Price</label>
+                    <label for="totalFPrice">Total Facility Price</label>
                     <input type="text" className="form-control" id="totalFPrice" value={totalFPrice} readOnly required
                     onChange={(e)=>{
                         setTotalFPrice(e.target.value);
@@ -193,7 +175,7 @@ export default function AddNormalService(){
                         setTotalCost(e.target.value);
                     }}/>
                 </div>
-                <button className="btn btn-primary" onClick={calculation}>Add</button><br/><br/>
+                <button className="btn btn-primary" onClick={calculation}>CALCULATE</button><br/><br/>
                <center> <button type="submit" className="btn btn-primary" >SUBMIT</button></center>
 
             </form>

@@ -37,11 +37,11 @@ export default function AddServiceFacilities(){
         <center>
             <h2 className="text-white">SERVICE MANAGEMENT</h2>
             </center><br/>
-            <form onSubmit={sendData} style={{  background: "#BBDEFB"}}>
+            <form className="Form" onSubmit={sendData} style={{  background: "#BBDEFB"}}>
         
-                <div className="col-auto">
-                    <label for="serviceType">Service Type</label>
-                    <select className="form-select" id="serviceType"
+                <div id="addfac">
+                    <label className="falabel"for="serviceType"><b>Service Type</b></label>
+                    <select className="form-select" id="serviceType" required
                     onChange={(e)=>{
                         setServiceType(e.target.value);
                     }}>
@@ -51,23 +51,22 @@ export default function AddServiceFacilities(){
                     </select>
                 </div>
 
-                <div className="mb-3">
-                    <label for="facilityName">Service Name</label>
+                <div  id="addfac"className="mb-3">
+                    <label className="falabel" for="facilityName"><b>Service Name</b></label>
                     <input type="text" className="form-control" id="facilityName" placeholder="Type Service Facility Name" required 
                     onChange={(e)=>{
                         setFacilityName(e.target.value);
                     }}/>
                 </div>
 
-                <div className="mb-3">
-                    <label for="facilityCost">Service Facility Cost (Rs)</label>
-                    <input type="text" className="form-control" id="facilityCost" placeholder="200"
+                <div id="addfac" className="mb-3">
+                    <label className="falabel" for="facilityCost"><b>Service Facility Cost (Rs)</b></label>
+                    <input type="number" className="form-control" id="facilityCost" placeholder="200"
                     onChange={(e)=>{
                         setFacilityCost(e.target.value);
                     }}/>
                 </div>
-<center>
-                <button type="submit" className="btn btn-primary">SUBMIT</button></center>
+                <button type="submit" id="btnsubmit" className="btn btn-primary"><b>SUBMIT</b></button>
 
             </form>
         </div>

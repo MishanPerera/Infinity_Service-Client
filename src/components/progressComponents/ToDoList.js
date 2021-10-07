@@ -1,96 +1,99 @@
-import React, {useState} from "react";
-import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
-import NavBar from "./Navbar";
-import { Navbar } from "reactstrap";
+import AddIcon from '@material-ui/icons/Add';
+import Popup from "./Popup";
+import AssignEmployee from "./AssignEmployee"
+import Navbar from "./Navbar";
 
-export default function ToDoList (){ 
-    
-        const[vNo, setVNo] = useState('');
-        const[entryDate, setEdate] = useState('');
-        //const[empNo, setEmpNo] = useState('');
-        const[handoverDate, setHdate] = useState('');
-      //  const[status, setStatus] = useState('');
-    
+export default function ToDoList() {
+
+
+    const [allData,setAllData] = useState([]);
+    const [filteredData,setFilteredData] = useState([]);
+   
+    const [openPopup, setOpenPopup] = useState(false);
+   
+       useEffect(() => {
+           function getProgresses(){
+               axios("http://localhost:8070/nservice/normal")
+               .then(response => {
+                   //console.log(response.data)
+                   setAllData(response.data);
+                   setFilteredData(response.data);
+               }).catch(error => {
+                       alert(error.message);
+               })
+           }
+           getProgresses();
+       }, [])
+   
+       const handleSearch = (event) =>{
        
-          const getService=async() =>{ 
-    
-            await axios.get(`http://localhost:8070/progress/service/${entryDate}`).then((res)=>{
-            //alert("Data Fetched Successfully!!!");
-               setVNo(res.data.progress.vNo);
-               //setEmpNo(res.data.progress.empNo);
-               setHdate(res.data.progress.handoverDate)
-               //etStatus(res.data.progress.status)
-    
-          }).catch((err)=>{
-              alert(err.message);
-              window.location.reload(false)
-          })
-         }; 
-
-    return(
-        <>
+           let value = event.target.value.toLowerCase();
+           let result = [];
+           console.log(value);
+   
+           result = allData.filter((data) => {
+                return data.entryDate.search(value) != -1;
+           });
+           setFilteredData(result);
+       }
+       return(    
+        <> 
         <div><Navbar/>
-         <center>
-        <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-500px"}}>
-                <h3> Progress Status</h3>
-         <nav className="navbar">
-                <div className="container-fluid">
-                    <a className="navbar-brand"> </a>
-                        <form className="d-flex">
-                            <input className="form-control me-2" 
-                            type="text" 
-                            id="entryDate"
-                            minLength={10} maxLength={10} value={entryDate}  placeholder="Enter Entry Date" required 
-                            onChange={(e)=>{
-                            setEdate(e.target.value);
+            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-700px"}}>
+                    <center>
+                        <h3> TO DO SERVICES</h3>
+                    </center>&nbsp;&nbsp;&nbsp;         
+                        <div>
+                            <label>Search:</label>
+                                <input type="text" onChange={(event) =>handleSearch(event)} />
+                        </div><br />
+                        <div className="card container d-flex justify-content-center">
+                            <table className="table table-hover">
+                                <thead>
+                                    <tr>
+                                    <th >Vehicle No</th>
+                                    <th >Entry Date</th>
+                                    <th >Customer Name</th>
+                                    <th >Total Cost</th>
+                                    <th >Finishing Date</th>
+                                    <th >Action</th>
+                                    </tr>
+                                </thead>
 
-                             }}/>
-                            <button className="btn-light btn-outline-success" type="submit" onClick={getService}>Search</button>&nbsp;
-                        </form>
-                </div>
-        </nav>
-       
-         <div className="card container d-flex justify-content-center">
-         <table className="table table-hover">
- 
-                     <thead>
-                         <tr>
-                             <th>vehicle no</th>
-                            
-                             <th>handover date</th>
-                            
-                            
-                             <th>Edit</th>
-
-                         </tr>
-                     </thead>
-                     <tbody>
-                               <tr>
-                                     <td >{vNo}</td>
-                                     
-                                     <td >{handoverDate} </td>
-                                     
-                                     
-
-                             
-                                     <td > <IconButton aria-label="edit" href="/add">
-                                           <EditIcon fontSize="small" />
-                                           </IconButton>
-                                     </td>
-
-                                 </tr>
-                     </tbody>
-                     </table>
+                                <tbody>
+                                    {filteredData.map((value)=>{
+                                        return(
+                                            <tr> 
+                                                <td>{value.vNo}</td> 
+                                                <td>{value.entryDate}</td>
+                                                <td>{value.cusName}</td>
+                                                <td>{value.totalCost}</td>
+                                                <td>{value.handoverDate}</td>
+                                                <td><IconButton aria-label="add" onClick={() => {setOpenPopup(true) }}>
+                                                    <AddIcon  fontSize="small" />                  
+                                                    </IconButton>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        </div><br />
             </div>
+                <Popup
+                    openPopup={openPopup}
+                    setOpenPopup={setOpenPopup}>
+                    <AssignEmployee />
+                </Popup>
+            <div className="container  text-white" style={{marginTop:"-700px" , paddingLeft:"400px"}}>
+                <h1>WORK PROGRESS MANAGEMENT</h1>
             </div>
-            </center>
-            <div className="container  text-white" style={{marginTop:"-600px" , paddingLeft:"400px"}}>
-    <h1>WORK PROGRESS MANAGEMENT</h1>
-     </div>
-     </div>
+        </div>
         </>
-)
+    )
 }
+
     

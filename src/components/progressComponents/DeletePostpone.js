@@ -7,7 +7,6 @@ import Navbar from "./Navbar";
 export default function DeletePostpone() {
 
     const[vNo, setVNo] = useState('');
-   
     const[handoverDate, setHdate] = useState('');
     const[reason, setReason] = useState('');
   
@@ -58,7 +57,7 @@ export default function DeletePostpone() {
             </div>
             <nav className="navbar">
                 <div className="container-fluid">
-                    <a className="navbar-brand"> </a>
+                    
                         <form className="d-flex">
                             <input className="form-control me-2" type="text"   id="vNo"
                             minLength={12} maxLength={12} value={vNo}  placeholder="Enter vehicle No" required 
@@ -132,7 +131,7 @@ export default function DeletePostpone() {
             </div>
         </div>
         </center>
-        <div className="container  text-white" style={{marginTop:"-350px" , paddingLeft:"400px"}}>
+        <div className="container  text-white" style={{marginTop:"-300px" , paddingLeft:"400px"}}>
         <h1>WORK PROGRESS MANAGEMENT</h1>
          </div></div>
 </>
