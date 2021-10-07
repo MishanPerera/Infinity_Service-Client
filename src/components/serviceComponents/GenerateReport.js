@@ -121,7 +121,7 @@ export default function GenerateReport() {
     return(    
         <> 
         <NavBar/>
-            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-700px"}}>
+            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"500px",paddingRight:"50px",paddingLeft:"300px",marginTop:"-700px"}}>
                 <center>
                     <h3> NORMAL SERVICE</h3>
                 </center>&nbsp;&nbsp;&nbsp;         
@@ -168,7 +168,7 @@ export default function GenerateReport() {
             </div>
             <br></br>
 
-            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"10px"}}>
+            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"500px",paddingRight:"50px",paddingLeft:"300px",marginTop:"10px"}}>
                 <center>
                     <h3> FULL SERVICE</h3>
                 </center>&nbsp;&nbsp;&nbsp;         

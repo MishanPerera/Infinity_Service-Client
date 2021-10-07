@@ -135,7 +135,7 @@ export default function AddFullService(){
             <h2 className="text-white">SERVICE MANAGEMENT</h2>
             </center><br/>
 
-            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"20px",paddingRight:"50px",paddingLeft:"300px",marginTop:"10px"}}>
+            <div style={{background:"#BBDEFB",paddingTop:"20px",paddingBottom:"200px",paddingRight:"50px",paddingLeft:"300px",marginTop:"10px"}}>
                 <center>
                     <h3> SELLING PRICE DETAILS</h3>
                 </center>&nbsp;&nbsp;&nbsp;         
@@ -168,9 +168,6 @@ export default function AddFullService(){
                             </tbody>
                         </table>
                     </div><br />
-                <center>
-                    
-                </center>
             </div>
             <br></br>
             
